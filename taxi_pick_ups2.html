@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Swipe between maps</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<link
+href ="https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css"
+rel="stylesheet"/>
+<style>
+
+/* #map { position: absolute; top: 0; bottom: 0; width: 100%; } */
+
+</style>
+</head>
+<body>
+<style>
+/* body {
+overflow: hidden;
+} */
+
+/* body * {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+} */
+
+.map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
+</style>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
+<div id="comparison-container">
+<div id="before" class="map"></div>
+<div id="after" class="map"></div>
+</div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoieWFuY2hhb21jcCIsImEiOiJja2tuNnBoNjcweGZsMm9wcjczejlhbXJvIn0.Qd9uUWPd9VY3Sm3CeGapnA';
+var beforeMap = new mapboxgl.Map({
+container: 'before',
+style: 'mapbox://styles/yanchaomcp/ckn9y5c8y2oxi17obevwltuvh',
+center: [-73.85,40.73],
+zoom: 9
+});
+
+
+var afterMap = new mapboxgl.Map({
+container: 'after',
+style: 'mapbox://styles/yanchaomcp/ckn86m61g1z6i17r27d43fjz7',
+center: [-73.85,40.73],
+zoom: 9
+});
+
+// make a pointer cursor
+
+
+// A selector or reference to HTML element
+var container = '#comparison-container';
+
+var map = new mapboxgl.Compare(beforeMap, afterMap, container, {
+// Set this to enable comparing two maps by mouse movement:
+// mousemove: true
+});
+
+</script>
+
+</body>
+</html>
